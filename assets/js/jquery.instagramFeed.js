@@ -114,7 +114,7 @@
                 if(caption === false){
                     caption = (options.type == "userid" ? '' : options.id) + " image";
                 }
-                caption = escape_string(caption);
+                if (caption) caption = escape_string(caption);
 
                 switch (imgs[i].media_type) {
                     case "CAROUSEL_ALBUM":
@@ -182,7 +182,7 @@
         options.cache_data_key = 'instagramFeed_' + options.type + '_' + options.id;
         options.cache_time_key = options.cache_data_key + '_time';
 
-        var token = 'IGQVJWRjVkNkhQQy1La05GU1ZAnVzQ5ak5vMFlOTGZABVk5idk5WRWUxWWpEakNpOG43NXhrZAnd6NDgtMEN3UVJiMUlSNFJsWWl2VE5FczRJbHlHcVhFV0tDSnhnS2VyWV9xdWJpUE9BRUFoekNITlZApQQZDZD';
+        var token = 'IGQVJXc3h3d3J6MHB5SGdvUnoyYVVqeHRqLWVrVnlZASHBfMkkzb3d4UTBvR2FqNmIyc0RuamlKcGRHU0NzQXJ3aThqZAXZAmWklWbTcyTWRoYjlBbnFpMTJ3b1luWDRHalZAyMkJuRks5RjVJMkJxUGNfYgZDZD';
         var fields = 'id,media_type,media_url,thumbnail_url,timestamp,permalink,caption';
         var limit = options.items; // Set a number of display items
 
