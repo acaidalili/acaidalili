@@ -182,7 +182,7 @@
         options.cache_data_key = 'instagramFeed_' + options.type + '_' + options.id;
         options.cache_time_key = options.cache_data_key + '_time';
 
-        var token = 'IGQVJXc3h3d3J6MHB5SGdvUnoyYVVqeHRqLWVrVnlZASHBfMkkzb3d4UTBvR2FqNmIyc0RuamlKcGRHU0NzQXJ3aThqZAXZAmWklWbTcyTWRoYjlBbnFpMTJ3b1luWDRHalZAyMkJuRks5RjVJMkJxUGNfYgZDZD';
+        var token = 'IGQVJYWDk0QzRHQUdnLVhGSXQ0THRMRE9SUHhTa21qZA3pOazFXdkhNQ2dJa2FBeGpqVjN2bFdqV0xNV1IyOVVWNTdUUmtlSkJKblFtUGk4a1BvSFg3LXRPbmgxR3R2Wkt1VUczZAkI2VVZANVmVlU19vdgZDZD';
         var fields = 'id,media_type,media_url,thumbnail_url,timestamp,permalink,caption';
         var limit = options.items; // Set a number of display items
 
@@ -197,6 +197,9 @@
                 $('#instagram-feed').append(html);
                 }
         });
+
+        // Refreshes the token - it expires every 60 days
+        const refreshed = fetch('https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=' + token);
 
         return true;
     };
